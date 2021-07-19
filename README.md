@@ -4,4 +4,4 @@ Usage:
     $ pip install -r requirements.txt
     $ flask rum
 
-Now go to http://<Server IP>:5000
+Now go to http://you_IP:5000

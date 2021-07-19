@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+   
+<p>
+  <a href="{{url_for('iol_func')}}">
+     <img src="{{ url_for('static', filename='to_calc_img.jpg') }}" alt="Перейти к расчету"></img>
+  </a>
+  <a href="{{url_for('authentification')}}">
+     <img src="{{ url_for('static', filename='to_set_img.jpg') }}" alt="Настройки"></img>
+  </a>
+</p>
+{% endblock %}
+

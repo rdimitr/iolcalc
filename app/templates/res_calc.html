@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% from 'bootstrap/form.html' import render_form, render_field, render_form_row %}
+
+{% block content %}
+
+    <p><span class="badge badge-info">Параметры глаза</span></p>
+	<table class="table">
+	    <thead>
+		<tr class="table-primary">
+			<th scope="col">Длина глаза, мм</th>
+			<th scope="col">Планируемая рефракция, D</th>
+			<th scope="col">Меридиан 1, D</th>
+			<th scope="col">Меридиан 2, D</th>			
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+			<td><b class="text-primary">{{dl_gl}}  </b> </td>
+			<td><b class="text-primary">{{pl_refr}}  </b></td>
+			<td><b class="text-primary">{{merid1}}  </b></td>
+			<td><b class="text-primary">{{merid2}}</b></td>
+		</tr>
+		</tbody>
+	</table>
+
+    <p><span class="badge badge-info">Расчет линз</span></p>
+
+	<table class="table">
+		<thead>
+		<tr class="table-primary">
+			<th scope="col">Параметр</th>
+			<th scope="col">{{NamesIol[0]}}</th>
+			<th scope="col">{{NamesIol[1]}}</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+			<th scope="row">A-константа</th>
+			<td>{{Aconst1}}</td>
+			<td>{{Aconst2}}</td>
+		</tr>
+		<tr>
+			<th scope="row">SRK-II</th>
+			<td>{{lense1[0]|round(2)}}</td>
+			<td>{{lense2[0]|round(2)}}</td>
+		</tr>
+		<tr>
+			<th scope="row">SRK-T</th>
+			<td>{{lense1[1]|round(2)}}</td>
+			<td>{{lense2[1]|round(2)}}</td>
+		</tr>
+		<tr>
+			<th scope="row">Holladay</th>
+			<td>{{lense1[2]|round(2)}}</td>
+			<td>{{lense2[2]|round(2)}}</td>
+		</tr>
+		<tr>
+			<th scope="row">Haigis</th>
+			<td>{{lense1[3]|round(2)}}</td>
+			<td>{{lense2[3]|round(2)}}</td>
+		</tr>
+		<tr>
+			<th scope="row">HofferQ</th>
+			<td>{{lense1[4]|round(2)}}</td>
+			<td>{{lense2[4]|round(2)}}</td>
+		</tr>
+		<tr>
+			<th scope="row">Shammas</th>
+			<td>{{lense1[5]|round(2)}}</td>
+			<td>{{lense2[5]|round(2)}}</td>
+		</tr>
+		<tr>
+			<th scope="row">Федоров С.Н.</th>
+			<td>{{lense1[6]|round(2)}}</td>
+			<td>{{lense2[6]|round(2)}}</td>
+		</tr>
+		
+		</tbody>
+	</table>
+	
+	<form action="/iol" method="post">
+    {{ render_form(form) }}
+    </form>
+
+{% endblock %}

@@ -1,0 +1,46 @@
+{% from 'bootstrap/nav.html' import render_nav_item %}
+{% from 'bootstrap/utils.html' import render_messages %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Калькулятор ИОЛ</title>
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    {{ bootstrap.load_css() }}
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-primary mb-4">
+        <a class="navbar-brand" href="http://eye-kaluga.com">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                {{ render_nav_item('index', 'Главная', use_li=True) }}
+                {{ render_nav_item('iol_func', 'ИОЛ', use_li=True) }}
+                {{ render_nav_item('authentification', 'Настройки', use_li=True) }}
+            </ul>
+        </div>
+    </nav>
+    
+    <main class="container">
+        {{ render_messages(container=False, dismissible=True) }}
+        {% block content %}{% endblock %}
+    </main>
+
+    
+<nav class="navbar navbar-dark navbar-expand-md bg-primary justify-content-between fixed-bottom">
+    <div class="container-fluid">
+        <a href="#" class="navbar-brand mx-auto d-block text-center order-0 order-md-1">
+        <small>&copy; 2020 | Калужский филиал ФГАУ НМИЦ МНТК Микрохирургия глаза имени академика С.Н.Федорова</small></a>
+    </div>
+</nav>
+
+
+    {{ bootstrap.load_js() }}
+</body>
+</html>

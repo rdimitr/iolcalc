@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% from 'bootstrap/form.html' import render_form, render_field, render_form_row %}
+
+{% block content %}
+
+    <form action="/calculator" method="post">
+    {{ form.csrf_token }}
+    {{ render_form_row([form.k1_field, form.k2_field], col_map={'k1name': 'col-md-6', 'k2name': 'col-md-4'}) }}
+    {{ render_form_row([form.k3_field, form.k4_field], col_map={'k3name': 'col-md-2', 'k4name': 'col-md-8'}) }}
+	{{ render_form_row([form.iol_list1, form.iol_list2], col_map={'list1name': 'col-md-2', 'list2name': 'col-md-8'}) }}
+    {{ render_form_row([form.submit]) }}
+    </form>
+
+{% endblock %}
